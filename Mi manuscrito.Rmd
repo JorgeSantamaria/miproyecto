@@ -1,0 +1,68 @@
+---
+title: "Es bueno el solecito para la felicidad"
+author: "Santamaría Pérez, J"
+date: "28/3/2019"
+output: word_document
+editor_options: 
+  chunk_output_type: console
+bibliography: references.bib
+csl: ecology-letters.csl
+---
+
+## INTRODUCTION
+
+It is well-known that climate influences people happiness [@Rezende_2007]...
+
+## METHODS 
+
+```{r}
+datos <- read.table("data.txt", header = TRUE)
+```
+
+```{r}
+modelo <- lm(happiness~sunshine, data=datos)
+```
+
+We interviewed `r nrow(datos)` people and fitted a linear model.
+
+
+## RESULTS
+
+We found that happiness is ositively related to sunshine hours (`r coef (modelo)[2]`).
+
+
+```{r}
+library(visreg)
+visreg(modelo)
+```
+
+```{r}
+library(knitr)
+library(xtable)
+kable(xtable(modelo))
+```
+
+
+## DISCUSSION
+
+Sunshine is good for happiness [@Young_2018]
+
+
+RMarkdown utiliza BibTex para leer bibliografía
+Podemos descargar diferentes estilos de citar dependiento de la revista
+Tenemos que buscar el archivo csl en internet (Zotero), descargarlo y colocar dicho archivo en la misma carpeta que el Markdown
+
+
+###########
+Para añadir ecuaciones utilizamos $
+$$
+y=x/z
+$$
+En mathpix puedes subir tu ecuación, incluso a mano, y te la traduce para Latex
+
+grmar te dice donde tienes errores gramaticales, etc...
+
+Hay plantillas de artículos para revistas
+
+
+## REFERENCES
